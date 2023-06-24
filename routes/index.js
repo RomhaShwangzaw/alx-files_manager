@@ -24,6 +24,7 @@ const mapRoutes = (app) => {
   app.get('/files', xTokenAuthenticate, FilesController.getIndex);
   app.put('/files/:id/publish', xTokenAuthenticate, FilesController.putPublish);
   app.put('/files/:id/unpublish', xTokenAuthenticate, FilesController.putUnpublish);
+  app.get('/files/:id/data', FilesController.getFile);
 };
 
 export default mapRoutes;
