@@ -41,16 +41,21 @@ class DBClient {
     return this.client.db().collection('files').countDocuments();
   }
 
-  async existsUser(obj) {
-    return this.client.db()
-      .collection('users').find(obj).count();
-  }
-
+  /**
+   * Inserts a new user document in the `users` collection.
+   * @params {obj} the fields to be inserted into the document.
+   * @returns {Obj} info about the inserted document.
+   */
   async saveUser(obj) {
     return this.client.db()
       .collection('users').insertOne(obj);
   }
 
+  /**
+   * Retrieves a record from the `users` collection.
+   * @params {obj} the field/s used to search for the document.
+   * @returns {User} the user document.
+   */
   async getUser(obj) {
     return this.client.db()
       .collection('users')
