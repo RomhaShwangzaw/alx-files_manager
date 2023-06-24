@@ -47,7 +47,7 @@ class DBClient {
   }
 
   async saveUser(obj) {
-    this.client.db()
+    return this.client.db()
       .collection('users').insertOne(obj);
   }
 
