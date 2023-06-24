@@ -42,24 +42,19 @@ class DBClient {
   }
 
   /**
-   * Inserts a new user document in the `users` collection.
-   * @params {obj} the fields to be inserted into the document.
-   * @returns {Obj} info about the inserted document.
+   * Retrieves a reference to the `users` collection.
+   * @returns {Promise<Collection>}
    */
-  async saveUser(obj) {
-    return this.client.db()
-      .collection('users').insertOne(obj);
+  async usersCollection() {
+    return this.client.db().collection('users');
   }
 
   /**
-   * Retrieves a record from the `users` collection.
-   * @params {obj} the field/s used to search for the document.
-   * @returns {User} the user document.
+   * Retrieves a reference to the `files` collection.
+   * @returns {Promise<Collection>}
    */
-  async getUser(obj) {
-    return this.client.db()
-      .collection('users')
-      .findOne(obj);
+  async filesCollection() {
+    return this.client.db().collection('files');
   }
 }
 
