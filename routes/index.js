@@ -1,5 +1,6 @@
 import AppController from '../controllers/AppController';
 import AuthController from '../controllers/AuthController';
+import FilesController from '../controllers/FilesController';
 import UsersController from '../controllers/UsersController';
 import { basicAuthenticate, xTokenAuthenticate } from '../middlewares/auth';
 
@@ -17,6 +18,8 @@ const mapRoutes = (app) => {
 
   app.post('/users', UsersController.postNew);
   app.get('/users/me', xTokenAuthenticate, UsersController.getMe);
+
+  app.post('/files', xTokenAuthenticate, FilesController.postUpload);
 };
 
 export default mapRoutes;
