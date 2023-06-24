@@ -20,6 +20,8 @@ const mapRoutes = (app) => {
   app.get('/users/me', xTokenAuthenticate, UsersController.getMe);
 
   app.post('/files', xTokenAuthenticate, FilesController.postUpload);
+  app.get('/files:id', xTokenAuthenticate, FilesController.getShow);
+  app.get('/files', xTokenAuthenticate, FilesController.getIndex);
 };
 
 export default mapRoutes;
