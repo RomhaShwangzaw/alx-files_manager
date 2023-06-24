@@ -21,7 +21,7 @@ const mapRoutes = (app) => {
   app.get('/users/me', xTokenAuthenticate, UsersController.getMe);
 
   app.post('/files', xTokenAuthenticate, FilesController.postUpload);
-  app.get('/files:id', xTokenAuthenticate, FilesController.getShow);
+  app.get('/files/:id', xTokenAuthenticate, FilesController.getShow);
   app.get('/files', xTokenAuthenticate, FilesController.getIndex);
   app.put('/files/:id/publish', xTokenAuthenticate, FilesController.putPublish);
   app.put('/files/:id/unpublish', xTokenAuthenticate, FilesController.putUnpublish);
